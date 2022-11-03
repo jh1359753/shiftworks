@@ -38,6 +38,15 @@ public class BookingController {
 	
 	
 	
+	//HEADER 작업 페이지로 이동
+	@GetMapping("/header")
+	public ModelAndView header() throws Exception{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("../views/includes/header_sample");
+		return mav;
+	}
+	
+	
 	//getList 테스트 메서드(jsonArray 테스트)
 	@GetMapping("/cal3")
 	public String listTojsonArray() {
