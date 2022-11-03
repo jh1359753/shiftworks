@@ -33,6 +33,10 @@ body {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);	
 } */
 
+#logo {
+	margin-left: 10px;
+}
+
 
 .nav-headbar{
 	background-color: #1C3359;
@@ -68,15 +72,15 @@ body {
 
 .nav-sidebar {
 	font-size: 1rem;
-	text-align: center;
+	/* text-align: center; */
 }
 
 .nav-sidebar{
 	background-color: #1C3359;
 	position: absolute;
-	height: 900px;
+	height: 1500px;
 	width: 200px;
-	margin-top: -68px;
+	/* margin-top: -68px; */
 	float: right;
 	text-align: center;
 	/* margin-right: 150px; */
@@ -110,7 +114,7 @@ body {
 }
 
 .sidebar-link:hover {
-	background-color: #4784E6;
+	background-color: #38B9FC;
 	border-radius: 5px;
 }
 
@@ -128,11 +132,22 @@ body {
 	transform: translateY(-1px);
 }
 
+.card {
+	background: #1C3359;
+	margin-top: 25px;
+	margin-bottom: -20px;
+	padding-bottom: 15px;
+}
 
+.card li {
+	margin-bottom: 5px;
+	text-align: left;
+}
 
-
-
-
+.card ul :hover {
+	background-color: #38B9FC;
+	border-radius: 5px;	
+}
 
 
 
