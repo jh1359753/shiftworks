@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-//test
+
 
 			<!-- 푸터 -->
 			<footer class="sticky-footer bg-white">
