@@ -13,7 +13,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; SHIFTWORKS</span>
+						<span style="font-weight: bolder;">Copyright &copy; SHIFTWORKS</span>
 					</div>
 				</div>
 			</footer> <!-- end footer -->

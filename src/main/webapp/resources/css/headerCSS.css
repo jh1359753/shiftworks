@@ -18,7 +18,7 @@ body {
 
 .container {
 	/* margin-left: 50px; */
-	padding-left: 150px;
+	padding-left: 180px;
 	padding-top: 30px;
 }
 
@@ -37,6 +37,31 @@ body {
 	margin-left: 10px;
 }
 
+#profile {
+	height: 100px; 
+	border-width: 0; 
+	/* border-color: white 2px; */
+	/* border-radius: 5px; */
+	width: 220px;
+	/* border: solid 2px white; */
+	margin-left: 25px;
+	margin-bottom: 5px;
+	margin-top: 30px;
+}
+
+#userName:hover {
+	/* color: red; */
+	/* background-color: #38B9FC; */
+	border-radius: 5px;
+	box-shadow: 2px 5px 10px #111;
+
+}
+
+/* #profile:hover {
+	border-width: 0; 
+	border-radius: 5px;
+	box-shadow: 2px 5px 10px #111;
+} */
 
 .nav-headbar{
 	background-color: #1C3359;
@@ -79,7 +104,7 @@ body {
 	background-color: #1C3359;
 	position: absolute;
 	height: 1500px;
-	width: 200px;
+	width: 230px;
 	/* margin-top: -68px; */
 	float: right;
 	text-align: center;
@@ -116,6 +141,7 @@ body {
 .sidebar-link:hover {
 	background-color: #38B9FC;
 	border-radius: 5px;
+	box-shadow: 2px 5px 10px #111;
 }
 
 
@@ -137,17 +163,19 @@ body {
 	margin-top: 25px;
 	margin-bottom: -20px;
 	padding-bottom: 15px;
+	text-align: center;
 }
 
 .card li {
 	margin-bottom: 5px;
-	text-align: left;
 }
 
-.card ul :hover {
+.card a :hover {
 	background-color: #38B9FC;
 	border-radius: 5px;	
 }
 
-
+.card card-body {
+	margin-top: -20px;
+}
 
