@@ -31,11 +31,11 @@
 <body>
 
 	<!-- naviBar headBar-->
-	<div class="row">
+	<!-- <div class="row">
 	<nav class="nav-headbar">
 		
 	</nav>
-	</div> <!-- end row -->
+	</div> --> <!-- end row -->
 	
 
 	 <!-- naviBar Sidebar -->
@@ -45,7 +45,7 @@
  		<!-- 로고 -->
  		<div class="row" id="shiftworksLogo">
 	 		<a href="#" class="navbar-brand text-white text-center d-block mx-auto py-3 mb-4 bottom-border">
-	 		<img id="logo" alt="로고자리" src="/resources/css/shiftwork_logo.png" width="200" class=""></a>
+	 		<img id="logo" alt="로고자리" src="/resources/css/shiftwork_logo.png" width="230" class=""></a>
  		</div>
 		
 		<!-- 프로필 -->
@@ -55,7 +55,7 @@
 	 				<!-- <a href="#" class="text-white">홍길동</a> -->
 			 		<a href="#multiCollapseUser" class="" data-bs-toggle="collapse" role="button"
  				aria-expanded="false" aria-controls="multiCollapseUser" style="text-decoration: none; color: white;" id="userName">
-			 		<img id="userProfile" alt="유저사진" src="/resources/css/bonoUser.png" width="85" class="rounded-circle" style="margin-top: -10px;">
+			 		<img id="userProfile" alt="유저사진" src="/resources/css/bonoUser.png" width="85" class="rounded-circle" style="margin-top: -10px; margin-left: 7px;">
 			 		<sec:authentication property="principal.username"></sec:authentication> <!-- 사용자 이름 -->
 			 		</a>
 			 		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
@@ -202,7 +202,7 @@
  		<div class="row">
 		  <div class="col">
 		    <div class="collapse multi-collapse" id="multiCollapseSCH">
-		    <div class="card card-body" style="height: 100px; border-width: 0;">
+		    <div class="card card-body" style="height: 120px; border-width: 0;">
 		      <ul>
 		      	<a href="/schedule/main"><li>나의 일정</li></a><br>
 		      	<a href="/schedule/main"><li>부서 일정</li></a><br>
@@ -269,7 +269,7 @@
  		<div class="row">
 		  <div class="col">
 		    <div class="collapse multi-collapse" id="multiCollapseBOA">
-		    <div class="card card-body" style="height: 100px; border-width: 0;">
+		    <div class="card card-body" style="height: 190px; border-width: 0;">
 		      <ul>
 		      	<a href="/board/new"><li>게시글 등록</li></a><br>
 		      	<a href="/board/newboard"><li>새 게시판 생성</li></a><br>
@@ -298,7 +298,7 @@
  		<div class="row">
 		  <div class="col">
 		    <div class="collapse multi-collapse" id="multiCollapseDOC">
-		    <div class="card card-body" style="height: 130px; border-width: 0;">
+		    <div class="card card-body" style="height: 150px; border-width: 0;">
 		      <ul>
 		      	<a href="/document/myApproval/1"><li>결재문서함</li></a><br>
 		      	<a href="/document/myDoc/1"><li>내가 쓴 게시물</li></a><br>
