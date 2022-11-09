@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         
         request.done(function (data) {
-            console.log(data); //가져온 data 확인
+            //console.log(data); //가져온 data 확인
 
             var calendarEl = document.getElementById('calendar');
 
