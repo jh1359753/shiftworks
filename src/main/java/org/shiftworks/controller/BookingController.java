@@ -94,9 +94,7 @@ public class BookingController {
 			/* map.put("color", "red"); */
 			/* map.put("backgroundColor", "#1C3359"); */
 			calList.add(i, map);
-			//calList.add(map);
 		}
-		//calList.add(map);
 
 		return calList;
 	}
@@ -108,17 +106,16 @@ public class BookingController {
 	public ModelAndView getCalList() {
 		ModelAndView mav = new ModelAndView();
 		List<BookingVO> list = service.getList();
-		log.info("list확인......................................>"+list);
+//		log.info("list확인......................................>"+list);
 		
 		String json = new Gson().toJson(list);
-		log.info("json변환 확인....................................."+json);
+//		log.info("json변환 확인....................................."+json);
 
 		mav.setViewName("booking/BOK_mainCal");
 		mav.addObject("event", json);
 		
-		log.info("cal controller..........................mav.......................");
 		log.info(mav);
-		log.info("json결과: ---------------------------------------"+json);
+//		log.info("json결과: ---------------------------------------"+json);
 
 		return mav;
 	}
@@ -190,11 +187,11 @@ public class BookingController {
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<String> insertBooking(@RequestBody BookingVO vo) {
 		
-		log.info("insertBooking controller.............");
+		//log.info("insertBooking controller.............");
 		//service.insertBooking(vo);
 		int re = service.insertBookingCondition(vo);
-		log.info(vo);
-		log.info(re);
+		//log.info(vo);
+		//log.info(re);
 		
 		return re == 1
 				? new ResponseEntity<>("success", HttpStatus.OK)
@@ -237,13 +234,13 @@ public class BookingController {
 	public ModelAndView getList(BookingCriteria cri, ModelAndView mav) {
 		//List<BookingVO> list = service.getList();
 		//ModelAndView mav = new ModelAndView();
-		log.info("list: "+cri);
+		//log.info("list: "+cri);
 		mav.setViewName("booking/BOK_list");
 		mav.addObject("event", service.getListwithPaging(cri));
 		//mav.addObject("pageMaker", new BookingPageDTO(cri, 123));
 		
 		int total = service.getTotalCount(cri);
-		log.info("total: "+total);
+		//log.info("total: "+total);
 		mav.addObject("pageMaker", new BookingPageDTO(cri, total));
 		
 		return mav;
@@ -257,7 +254,7 @@ public class BookingController {
 		log.info("getMyList controller....................");
 		
 		UserDetails ud = (UserDetails)auth.getPrincipal();
-		log.info(ud.getUsername());
+		//log.info(ud.getUsername());
 		String emp_id = ud.getUsername();
 		
 		List<BookingVO> myList = service.getMyList(emp_id);
@@ -265,7 +262,7 @@ public class BookingController {
 
 		mav.setViewName("booking/BOK_myList");
 		mav.addObject("event", myList);
-		log.info(myList);
+		//log.info(myList);
 		
 		return mav;
 	}
@@ -276,7 +273,7 @@ public class BookingController {
 	public ResponseEntity<String> deleteBooking(@PathVariable("book_id") int book_id) {
 		log.info("deleteBooking controller..................");
 		int re = service.deleteBooking(6);
-		log.info(re);
+		//log.info(re);
 		
 		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
