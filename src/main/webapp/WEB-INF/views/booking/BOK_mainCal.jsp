@@ -45,7 +45,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     minute: '2-digit',
                     hour12: false
                   }, //시간 표시 옵션
-                eventBackgroundColor : "#1C3359",
+               businessHours: {
+                	  // days of week. an array of zero-based day of week integers (0=Sunday)
+                	  daysOfWeek: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
+
+                	  startTime: '09:00', // a start time (10am in this example)
+                	  endTime: '20:00', // an end time (6pm in this example)
+                	},
+                /* eventBackgroundColor : "#1C3359", */
                 selectable: true,
                 navLinks: true,
                 editable: true,
@@ -66,95 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*       document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        /* var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        }); */
-        
-		/* bookingService.getCalList(function(result){
-    		console.log("RESULT: "+result);
-    	}) */
-    	
-/*         var calendar = new FullCalendar.Calendar(calendarEl, {
-     		
-        }); 
-        
-        calendar.render();
-        
-      }); */
-      
-      
-      
-/*       	   events: [
-       	    {
-       	      title  : '구매팀 워크샵',
-       	      start  : '2022-11-11'
-       	    },
-       	    {
-       	      title  : '해외영업팀 출장',
-       	      start  : '2022-11-05',
-       	      end    : '2022-11-07'
-       	    },
-       	    {
-       	      title  : '인사팀 오전 회의',
-       	      start  : '2022-11-09T12:3.0:00',
-       	      allDay : false // will make the time show
-       	    }
-       	  ] */
-       	  
-        	
-/*         	events:function(callback){
-        		
-        		$.ajax({
-        			type: 'GET',
-        			url: 'booking/cal/3',
-        			succes: function(data){
-        				var events =[];
-        				console.log("ajax 실행중......................");
-        				if(data != null){
-        					events.push({
-            					title: data.book_title,
-            					start: data.book_date,
-            					color: 'red'
-        					});
-        				}
-        			}
-        		})//end ajax
-        		
-        	}//end events function */
-        	
-        	
-         	  /* eventSources: [
-
-        		    // your event source
-        		     {
-        		      url: '/booking/cal/3', // use the `url` property
-        		      color: 'yellow',    // an option!
-        		      textColor: 'black'  // an option!
-        		    }
-
-        		    // any other sources...
-        		  ] */
-        	
-       	   /* events: [
-       	    {
-       	      title  : ,
-       	      start  : 
-       	    }
-       	  ] */
-
-
 </script>
 
 
@@ -168,32 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		<h2>Booking Calendar</h2>
 		<div id='calendar'></div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

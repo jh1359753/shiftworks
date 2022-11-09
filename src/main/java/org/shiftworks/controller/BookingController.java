@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -78,6 +79,14 @@ public class BookingController {
 			String begin = bookingList.get(i).getBook_begin();
 			int getEndTime = Integer.parseInt(bookingList.get(i).getBook_begin())+2;
 			String end = Integer.toString(getEndTime);
+			
+//			if(bookingList.get(i).getRsc_id()=="MTR101") {
+//				map.put("backgroundColor", "#1C3359");
+//			}else if(bookingList.get(i).getRsc_id()=="MTR202") {
+//				map.put("color", "black");
+//			}else if(bookingList.get(i).getRsc_id()=="CFR305") {
+//				map.put("color", "blue");
+//			}
 			
 			map.put("title", bookingList.get(i).getBook_title());
 			map.put("start", bookingList.get(i).getBook_date().substring(0, 10)+"T"+begin+":00");
@@ -204,6 +213,22 @@ public class BookingController {
 		
 		return mav;
 	}
+	
+	
+	
+	//예약 수정폼 이동
+	@GetMapping("/modify/{book_id}")
+	@PreAuthorize("isAuthenticated()")
+	public ModelAndView getModifyForm(@PathVariable("book_id") int book_id) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("booking/BOK_modifyForm");
+		mav.addObject("event", service.getBooking(book_id));
+		
+		return mav;
+	}
+	
+	
 	
 	
 	//전체 예약 현황보기(+페이징)(게시판 이동)

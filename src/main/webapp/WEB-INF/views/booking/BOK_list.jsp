@@ -49,22 +49,23 @@
 			</table>
 			
 			<div class="table-bottom">
-				<ul class="pagination">
+				<ul class="pagination pagination-sm">
 					<c:if test="${pageMaker.prev }">
-						<li class="paginate_button previous"><a href="${pageMaker.startPage-1 }">Previous</a></li>
+						<li class="page-item previous"><a class="page-link" href="${pageMaker.startPage-1 }">Previous</a></li>
 					</c:if>
 					
 					<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-						<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active':''} "><a href="${num }">${num}&ensp;</a></li>
+						<li class="page-item ${pageMaker.cri.pageNum == num ? 'active':''} "><a class="page-link" href="${num }">${num}&ensp;</a></li>
 					</c:forEach>
 					
 					<c:if test="${pageMaker.next }">
-						<li class="paginate_button next"><a href="${pageMaker.endPage +1 }">Next</a></li>
+						<li class="page-item next"><a class="page-link" href="${pageMaker.endPage +1 }">Next</a></li>
 					</c:if>
 					<li style="margin-left: 200px;"><a href="/booking/mylist"><c:out value="내 예약목록 보기"></c:out></a></li>
 					<li style="margin-left: 10px;"><a href="/booking/new"><c:out value="예약하기"></c:out></a></li>
 				</ul>
 			</div>
+			
 
 			
 			<form id="actionForm" action="/booking/list" method="get">
@@ -84,7 +85,7 @@
 		$(document).ready(function(){
 			var actionForm = $('#actionForm');
 			
-			$(".paginate_button a").on('click', function(e){
+			$(".page-item a").on('click', function(e){
 				e.preventDefault();
 				
 				console.log('click');

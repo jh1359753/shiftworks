@@ -10,12 +10,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Detail Reservation</title>
+<title>Modify Your Reservation</title>
 </head>
 <body>
 
 	<div class="container">
-	<div class="col-12"><h2>예약 상세보기</h2></div>
+	<div class="col-12"><h2>예약 수정하기</h2></div>
  	
   	<div class="col-8">
   		<div>
@@ -24,7 +24,7 @@
   		</div>
   		<div>
   			<label>예약명</label>
-  			<input class="form-control" name="book_title" value="${event.book_title }" readonly="readonly">
+  			<input class="form-control" name="book_title" value="${event.book_title }">
   		</div>
   		<div>
   			<label>예약자</label>
@@ -38,14 +38,14 @@
   		</div>
    		<div>
   			<label>예약내용</label>
-  			<textarea class="form-control" name="book_content" style="height: 100px;" readonly="readonly">${event.book_content }</textarea>
+  			<textarea class="form-control" name="book_content" style="height: 100px;">${event.book_content }</textarea>
   		</div>
   		
 
 	<br><br>
 	
 			<a href="/booking/list"><button id="listBtn" type="button" class="btn btn-primary">목록보기</button></a>
-			<a href="/booking/modify/${event.book_id }"><button id="modifyBtn" type="button" class="btn btn-success">수정하기</button></a>
+			<a href="/booking/modify/${event.book_id }"><button id="modifyBtn" type="submit" class="btn btn-success">수정완료</button></a>
 			<a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a>
 
 	</div> <!-- end col-8 -->
