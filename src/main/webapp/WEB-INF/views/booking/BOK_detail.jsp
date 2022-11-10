@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <meta charset="UTF-8">
 <title>Your Detail Reservation</title>
 </head>
@@ -45,8 +47,20 @@
 	<br><br>
 	
 			<a href="/booking/list"><button id="listBtn" type="button" class="btn btn-primary">목록보기</button></a>
-			<a href="/booking/modify/${event.book_id }"><button id="modifyBtn" type="button" class="btn btn-success">수정하기</button></a>
-			<a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a>
+			<sec:authentication property="principal" var="pinfo"/>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${pinfo.username eq event.emp_id}">
+						<a href="/booking/modify/${event.book_id }"><button id='modifyBtn' class='btn btn-success'>수정하기</button></a>
+					</c:if>
+				</sec:authorize>				
+			<%-- <a href="/booking/modify/${event.book_id }"><button id="modifyBtn" type="button" class="btn btn-success">수정하기</button></a> --%>
+			<sec:authentication property="principal" var="pinfo"/>
+				<sec:authorize access="isAuthenticated()">
+					<c:if test="${pinfo.username eq event.emp_id}">
+						<button id='modifyBtn' class='btn btn-danger'>예약취소</button>
+					</c:if>
+				</sec:authorize>
+			<!-- <a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a> -->
 
 	</div> <!-- end col-8 -->
 	</div> <!-- end container -->
