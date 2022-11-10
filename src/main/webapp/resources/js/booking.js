@@ -81,7 +81,28 @@ var bookingService = (function(){
 	
 	
 	
-	
+		function removeBooking(bookingData, callback, error){
+		console.log("*removeBooking Process*...........");
+		
+		$.ajax({
+			type: 'delete',
+			url: '/booking/'+event.book_id,
+			data: JSON.stringify(bookingData),
+			beforeSend : function(xhr){
+                xhr.setRequestHeader(bookingData.csrf_header, bookingData.csrf_token);
+            },
+			success: function(result, status, xhr){
+				if(callback){
+					callback(result);
+				}
+			},
+			error: function(xhr, status, er){
+				if(error){
+					error(er);
+				}
+			}
+		})
+	}//end modifyBooking
 	
 	
 	
@@ -96,6 +117,7 @@ var bookingService = (function(){
 			insertBooking:insertBooking,
 			getCalList:getCalList,
 			listBookingCal:listBookingCal,
-			modifyBooking: modifyBooking
+			modifyBooking: modifyBooking,
+			removeBooking: removeBooking
 			};
 })();

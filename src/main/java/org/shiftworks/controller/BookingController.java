@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -255,17 +256,38 @@ public class BookingController {
 	}
 	
 	//예약 취소하기
-	@PostMapping("/{book_id}")
+//	@PostMapping("/{book_id}")
+//	@PreAuthorize("isAuthenticated()")
+//	public ResponseEntity<String> deleteBooking(@PathVariable("book_id") int book_id, Authentication auth) {
+//		log.info("deleteBooking controller..................");
+//		
+//		UserDetails ud = (UserDetails)auth.getPrincipal();
+//		//log.info(ud.getUsername());
+//		String emp_id = ud.getUsername();
+//		
+//		
+//		int re = service.deleteBooking(book_id);
+//		//log.info(re);
+//		
+//		return re ==1
+//				? new ResponseEntity<String>("success", HttpStatus.OK)
+//				: new ResponseEntity<String>("fail", HttpStatus.OK);
+//	}
+	
+	//예약 취소하기
+	@DeleteMapping("/{book_id}")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<String> deleteBooking(@PathVariable("book_id") int book_id) {
 		log.info("deleteBooking controller..................");
-		int re = service.deleteBooking(6);
+		
+		
+		int re = service.deleteBooking(book_id);
 		//log.info(re);
 		
-		return new ResponseEntity<String>("success", HttpStatus.OK);
+		return re == 1
+				? new ResponseEntity<String>("success", HttpStatus.OK)
+				: new ResponseEntity<String>("fail", HttpStatus.OK);
 	}
-	
-
 
 
 

@@ -25,6 +25,8 @@ public interface BookingService {
 		
 	//내 예약목록 보기
 	public List<BookingVO> getMyList(String emp_id);
+	
+	//예약 취소
 	public int deleteBooking(int book_id);
 	
 	

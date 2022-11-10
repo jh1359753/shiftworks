@@ -20,6 +20,7 @@
 	<div class="col-12"><h2>예약 상세보기</h2></div>
  	
   	<div class="col-8">
+  		<div class="removeForm">
   		<div>
   			<label>예약번호</label>
   			<input class="form-control" name="book_id" value="${event.book_id }" readonly="readonly">
@@ -57,13 +58,77 @@
 			<sec:authentication property="principal" var="pinfo"/>
 				<sec:authorize access="isAuthenticated()">
 					<c:if test="${pinfo.username eq event.emp_id}">
-						<button id='modifyBtn' class='btn btn-danger'>예약취소</button>
+						<form action="/booking/${event.book_id }" method="delete"><button id='removeBtn' class='btn btn-danger'>예약취소</button></form>
+						 <%-- <a href="/booking/${event.book_id }"><button id='removeBtn' class='btn btn-danger'>예약취소</button></a> --%>
 					</c:if>
 				</sec:authorize>
 			<!-- <a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a> -->
-
+	</div> <!-- end removeForm -->
 	</div> <!-- end col-8 -->
 	</div> <!-- end container -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--javaScript 스크립트-->
+	<script type="text/javascript" src="/resources/js/booking.js"></script>
+	<script type="text/javascript">
+	
+	
+	$(document).ready(function(){
+		
+		console.log(bookingService);
+		
+		var form = $(".removeForm");
+		var csrf_token = $("meta[name='_csrf']").attr("content");
+		var csrf_header = $("meta[name='_csrf_header']").attr("content");
+		 
+		var book_id = form.find("input[name='book_id']");
+			
+	
+		$(".removeBtn").on("click", function(e){
+		 e.preventDefault();
+		 console.log("remove process"); 
+
+		var bookingData = {
+					book_id:book_id,
+					csrf_token:csrf_token,
+			    	csrf_header:csrf_header
+			 }
+		 
+		 bookingService.removeBooking(bookingData, function(result){
+			 if(result == "success"){
+				 alert("예약이 취소 되었습니다");
+				 $(location).attr('href', 'booking/mylist');
+			 }else if(result == "fail"){
+				 alert("예약 취소 실패! 관리자에게 문의해주세요");
+			 }
+		 })//end removeBooking
+		 
+	});
+
+});
+	
+	
+	
+	
+	
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

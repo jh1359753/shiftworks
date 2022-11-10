@@ -55,7 +55,7 @@
 			</sec:authorize>
 			
 			<%-- <a href="/booking/modify/${event.book_id }"><button id="modifyBtn" type="submit" class="btn btn-success">수정완료</button></a> --%>
-			<a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a>
+			<!-- <a href="#"><button id="removeBtn" type="button" class="btn btn-danger">예약 취소</button></a> -->
 	</div> <!-- end modifyForm -->
 	</div> <!-- end col-8 -->
 	</div> <!-- end container -->
@@ -77,8 +77,6 @@
 	$(document).ready(function(){
 		
 		console.log(bookingService);
-		
-		
 		
 		
 		//예약 수정폼 데이터
