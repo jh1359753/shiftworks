@@ -159,7 +159,7 @@ $(document).ready(function(){
 					</tr>
 				</thead>
 				
-				<c:forEach items="${ event }" var="reserv" begin="0" end="4">
+				<c:forEach items="${ event }" var="reserv">
 					<tr>
 						<td><c:out value="${reserv.book_id }"></c:out></td>
 						<td><a href="/booking/${reserv.book_id}"><c:out value="${reserv.book_title }"></c:out></a></td>
