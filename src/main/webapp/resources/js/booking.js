@@ -52,12 +52,50 @@ var bookingService = (function(){
 		});
 	}//end getCalList
 	
+	
+	
+	
+	function modifyBooking(bookingData, callback, error){
+		console.log("*modifyBooking Process*...........");
+		
+		$.ajax({
+			type: 'post',
+			url: '/booking/modify',
+			data: JSON.stringify(bookingData),
+			beforeSend : function(xhr){
+                xhr.setRequestHeader(bookingData.csrf_header, bookingData.csrf_token);
+            },
+			contentType: "application/json; charset=utf-8",
+			success: function(result, status, xhr){
+				if(callback){
+					callback(result);
+				}
+			},
+			error: function(xhr, status, er){
+				if(error){
+					error(er);
+				}
+			}
+		})
+	}//end modifyBooking
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	//이름 정리
 	return {name:"Reservation",
 			insertBooking:insertBooking,
 			getCalList:getCalList,
-			listBookingCal:listBookingCal
+			listBookingCal:listBookingCal,
+			modifyBooking: modifyBooking
 			};
 })();

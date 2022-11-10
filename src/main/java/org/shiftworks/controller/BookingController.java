@@ -135,36 +135,6 @@ public class BookingController {
 		map.put("start", getOne.getBook_date());
 		
 		return map;
-		
-		
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("booking/bookingList");
-//		mav.addObject("event", service.getList());
-		
-//		JsonObject jsonObj = new JsonObject();
-//		JsonArray jsonArr = new JsonArray();
-//		
-//		HashMap<String, Object> hash = new HashMap<String, Object>();
-//		
-//		for(int i=0; i<list.size();i++) {
-//			hash.put("title", list.get(i).getBook_title());
-//			hash.put("start", list.get(i).getBook_date());
-//
-//			jsonObj = new JsonObject(hash);
-//			jsonArr.add(jsonObj);
-//		}
-//		log.info("jsonArr: "+jsonArr);
-		
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		for(int i=0;i<list.size();i++) {
-//			map.put("title", list.get(i).getBook_title());
-//			map.put("start", list.get(i).getBook_date());
-//		}
-//		
-//		ArrayList<HashMap<String, Object>> resultList = new ArrayList<HashMap<String,Object>>();
-//		resultList.add(null);
-		
-		//return map;
 	}
 	
 	
@@ -224,6 +194,23 @@ public class BookingController {
 		
 		return mav;
 	}
+	
+	
+	
+	//예약 수정하기
+	@PostMapping(value ="/modify", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("isAuthenticated()")
+	public ResponseEntity<String> modifyBooking(@RequestBody BookingVO vo) {
+		
+		int re = service.modifyBooking(vo);
+		
+		return re == 1
+				? new ResponseEntity<String>("success", HttpStatus.OK)
+				: new ResponseEntity<>("fail", HttpStatus.OK);
+		
+		//mav.setViewName("booking/list");
+	}
+	
 	
 	
 	

@@ -127,7 +127,7 @@
 	$(document).ready(function(){
 		
 		console.log(bookingService);
-		console.log("---------------------JS '***bookingService***' TESTING---------------------");
+		//console.log("---------------------JS '***bookingService***' TESTING---------------------");
 		
 		
 		
@@ -193,7 +193,7 @@
 	
 	
 	
-	</script>
+</script>
 </body>
 <%@include file="/WEB-INF/views/includes/footer.jsp" %>
 </html>

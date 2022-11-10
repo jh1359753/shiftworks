@@ -29,7 +29,7 @@
 	</select>
 	
 	
-		<!-- 선택한 자원의 해당일자 예약 목록 불러오기 -->
+	<!-- 선택한 자원의 해당일자 예약 목록 불러오기 -->
 	<resultMap type="org.shiftworks.domain.BookingVO" id="bookingPagingMap">
 		<result column="emp_id" property="emp_id" jdbcType="NVARCHAR" javaType="String" />
 		<result column="book_date" property="book_date" jdbcType="DATE" javaType="String"/>
@@ -53,13 +53,13 @@
 			)
 			where rn> (#{pageNum}-1)*#{amount}
 		]]>
+		order by book_id desc
 	</select>
 	
+	<!-- 전체 예약 수 -->
 	<select id="getTotalCount" resultType="int">
 		select count(*) from rsc_booking where book_id > 0
 	</select>
-	
-	
 	
 	
 	<!-- 전체 예약목록 -->
@@ -71,6 +71,15 @@
 	<select id="getMyList" parameterType="String" resultType="org.shiftworks.domain.BookingVO">
 		select * from rsc_booking where emp_id = #{emp_id}
 	</select>
+
+	<!-- 예약 수정 -->
+	<update id="modifyBooking" parameterType="org.shiftworks.domain.BookingVO">
+		update rsc_booking 
+		set book_title = #{book_title}, book_content = #{book_content} 
+		where book_id = #{book_id} 
+	</update>
+
+
 	
 	<!-- 예약 취소 -->
  	<delete id="deleteBooking" parameterType="int">

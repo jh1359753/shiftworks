@@ -27,6 +27,10 @@ public interface BookingMapper {
 	public int getTotalCount(BookingCriteria cri);
 	
 	
+	//예약 수정
+	public int modifyBooking(BookingVO vo);
+	
+	
 	//내 예약목록 보기
 	public List<BookingVO> getMyList(String emp_id);
 	public int deleteBooking(int book_id);

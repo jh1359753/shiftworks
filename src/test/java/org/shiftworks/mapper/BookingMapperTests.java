@@ -161,15 +161,29 @@ public class BookingMapperTests {
 //	}
 	
 	
-	@Test
-	public void testPage() {
-		BookingCriteria cri = new BookingCriteria();
-		cri.setPageNum(3);
-		cri.setAmount(3);
-		List<BookingVO> list = mapper.getListwithPaging(cri);
-		list.forEach(booking -> log.info(booking));
-	}
+//	@Test
+//	public void testPage() {
+//		BookingCriteria cri = new BookingCriteria();
+//		cri.setPageNum(3);
+//		cri.setAmount(3);
+//		List<BookingVO> list = mapper.getListwithPaging(cri);
+//		list.forEach(booking -> log.info(booking));
+//	}
 	
+	
+	@Test
+	public void testModify() {
+		BookingVO vo = new BookingVO();
+		
+		vo.setBook_id(6);
+		vo.setBook_title("수정 테스트");
+		vo.setBook_content("수정 테스트 본문");
+		log.info(vo);
+		
+		
+		int re = mapper.modifyBooking(vo);
+		log.info(re);
+	}
 	
 	
 	

@@ -155,5 +155,14 @@ public class BookingServiceImpl implements BookingService {
 		return mapper.getTotalCount(cri);
 	}
 
+	
+	//예약 수정하기
+	@Override
+	public int modifyBooking(BookingVO vo) {
+		log.info("modify booking from Service.....");
+		
+		return mapper.modifyBooking(vo);
+	}
+
 
 }
