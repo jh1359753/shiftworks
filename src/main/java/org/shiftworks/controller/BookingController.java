@@ -75,25 +75,22 @@ public class BookingController {
 
 		for(int i=0;i<bookingList.size();i++) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			//map.put("start", bookingList.get(i).getBook_date());
 
 			String begin = bookingList.get(i).getBook_begin();
 			int getEndTime = Integer.parseInt(bookingList.get(i).getBook_begin())+2;
 			String end = Integer.toString(getEndTime);
 			
-//			if(bookingList.get(i).getRsc_id()=="MTR101") {
-//				map.put("backgroundColor", "#1C3359");
-//			}else if(bookingList.get(i).getRsc_id()=="MTR202") {
-//				map.put("color", "black");
-//			}else if(bookingList.get(i).getRsc_id()=="CFR305") {
-//				map.put("color", "blue");
-//			}
+			if(bookingList.get(i).getRsc_id().equals("MTR101")) {
+				map.put("backgroundColor", "#1C3359");
+			}else if(bookingList.get(i).getRsc_id().equals("MTR202")) {
+				map.put("color", "black");
+			}else if(bookingList.get(i).getRsc_id().equals("CFR305")) {
+				map.put("color", "blue");
+			}
 			
 			map.put("title", bookingList.get(i).getBook_title());
 			map.put("start", bookingList.get(i).getBook_date().substring(0, 10)+"T"+begin+":00");
 			map.put("end", bookingList.get(i).getBook_date().substring(0, 10)+"T"+end+":00");
-			/* map.put("color", "red"); */
-			/* map.put("backgroundColor", "#1C3359"); */
 			calList.add(i, map);
 		}
 
